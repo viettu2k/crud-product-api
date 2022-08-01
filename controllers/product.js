@@ -17,7 +17,6 @@ exports.productById = (req, res, next, id) => {
 };
 
 exports.read = (req, res) => {
-  req.product.photo = undefined;
   return res.json(req.product);
 };
 
