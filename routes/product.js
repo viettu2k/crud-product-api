@@ -13,15 +13,15 @@ const {
   listSearch,
 } = require("../controllers/product");
 
+router.post("/add-product", addProduct);
 router.get("/:productId", read);
-router.post("/add", addProduct);
 router.delete("/:productId", remove);
 router.put("/:productId", update);
 
-router.get("/products", list);
+router.get("/get-products", list);
 router.get("/products/search", listSearch);
-router.post("/products/by/search", listBySearch);
 router.get("/photo/:productId", photo);
+router.post("/products/by/search", listBySearch);
 
 router.param("productId", productById);
 

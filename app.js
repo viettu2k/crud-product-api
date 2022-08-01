@@ -28,7 +28,7 @@ app.use(expressValidator());
 app.use(cors());
 
 // routes middleware
-app.use("/product", productRoutes);
+app.use("/products", productRoutes);
 
 const port = process.env.PORT || 8000;
 
