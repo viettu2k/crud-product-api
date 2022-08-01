@@ -14,11 +14,11 @@ const {
 } = require("../controllers/product");
 
 router.post("/add-product", addProduct);
+router.get("/get-products", list);
 router.get("/:productId", read);
 router.delete("/:productId", remove);
 router.put("/:productId", update);
 
-router.get("/get-products", list);
 router.get("/products/search", listSearch);
 router.get("/photo/:productId", photo);
 router.post("/products/by/search", listBySearch);
