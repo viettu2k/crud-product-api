@@ -21,7 +21,7 @@ exports.read = (req, res) => {
   return res.json(req.product);
 };
 
-exports.create = (req, res) => {
+exports.addProduct = (req, res) => {
   let form = new formidable.IncomingForm();
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
@@ -56,8 +56,9 @@ exports.create = (req, res) => {
 
     product.save((err, result) => {
       if (err) {
+        console.log(err);
         return res.status(400).json({
-          error: errorHandler(err),
+          error: err,
         });
       }
       res.json(result);
