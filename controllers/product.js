@@ -17,6 +17,7 @@ exports.productById = (req, res, next, id) => {
 };
 
 exports.read = (req, res) => {
+  req.product.photo = undefined;
   return res.json(req.product);
 };
 
@@ -96,7 +97,6 @@ exports.update = (req, res) => {
     // 1mb = 1000000
 
     if (files.photo) {
-      // console.log("FILES PHOTO: ", files.photo);
       if (files.photo.size > 1000000) {
         return res.status(400).json({
           error: "Image should be less than 1mb in size",
@@ -127,7 +127,7 @@ exports.update = (req, res) => {
 exports.list = (req, res) => {
   let order = req.query.order ? req.query.order : "asc";
   let sortBy = req.query.sortBy ? req.query.sortBy : "_id";
-  let limit = req.query.limit ? parseInt(req.query.limit) : 6;
+  let limit = req.query.limit ? parseInt(req.query.limit) : 8;
 
   Product.find()
     .select("-photo")

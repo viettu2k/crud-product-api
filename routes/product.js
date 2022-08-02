@@ -19,9 +19,10 @@ router.post("/add-product", addProduct);
 router.get("/get-products", list);
 // Get product photo
 router.get("/photo/:productId", photo);
-
-router.get("/:productId", read);
-router.delete("/:productId", remove);
+// Get product by id
+router.get("/get-product/:productId", read);
+// Delete product by id
+router.delete("/delete/:productId", remove);
 router.put("/:productId", update);
 router.get("/products/search", listSearch);
 router.post("/products/by/search", listBySearch);
